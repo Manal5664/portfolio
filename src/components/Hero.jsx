@@ -16,45 +16,138 @@ function LinkedInIcon() {
   );
 }
 
-export default function Hero() {
+function DownloadIcon() {
   return (
-    <section className="hero section" id="hero">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M12 3v12" />
+      <path d="m7 10 5 5 5-5" />
+      <path d="M5 21h14" />
+    </svg>
+  );
+}
+
+const heroTechStack = [
+  "Python",
+  "React",
+  "FastAPI",
+  "Machine Learning",
+  "PostgreSQL",
+  "Docker",
+];
+
+export default function Hero() {
+  const cvUrl = personalInfo.resumeUrl?.startsWith("/")
+    ? personalInfo.resumeUrl
+    : null;
+
+  return (
+    <section className="hero section" id="hero" aria-labelledby="hero-title">
       <div className="section-container hero-content">
-        <p className="hero-greeting">Hello, I&apos;m</p>
-        <h1 className="hero-title">
-          <span className="hero-title-accent">{personalInfo.name}</span>
-        </h1>
-        <p className="hero-title" style={{ fontSize: "clamp(1.25rem, 3vw, 1.75rem)", marginBottom: "var(--space-md)" }}>
-          {personalInfo.title}
-        </p>
-        <p className="hero-subtitle">{personalInfo.tagline}</p>
-        <div className="hero-actions">
-          <a href="#projects" className="btn-primary">
-            View Projects
-          </a>
-          <a href="#contact" className="btn-secondary">
-            Contact Me
-          </a>
-        </div>
-        <div className="hero-social">
-          <a
-            href={personalInfo.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub profile"
-          >
-            <GithubIcon />
-          </a>
-          {personalInfo.linkedin && (
+        <div className="hero-copy">
+          <p className="hero-greeting">Hello, I&apos;m</p>
+          <h1 className="hero-title" id="hero-title">
+            <span className="hero-title-accent">{personalInfo.name}</span>
+          </h1>
+          <p className="hero-role">
+            Software Developer <span aria-hidden="true">|</span> Data Science &amp; AI
+          </p>
+          <p className="hero-subtitle">
+            Building intelligent, data-driven applications that combine modern software
+            engineering with applied AI.
+          </p>
+
+          <div className="hero-actions">
+            <a href="#projects" className="btn-primary">
+              View Projects <span aria-hidden="true">→</span>
+            </a>
+            <a href="#contact" className="btn-secondary">
+              Contact Me
+            </a>
+            {cvUrl && (
+              <a href={cvUrl} className="btn-download" download>
+                <DownloadIcon /> Download CV
+              </a>
+            )}
             <a
-              href={personalInfo.linkedin}
+              href={personalInfo.github}
+              className="hero-social-link"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn profile"
+              aria-label="View Manal Asghar's GitHub profile"
             >
-              <LinkedInIcon />
+              <GithubIcon /> GitHub
             </a>
-          )}
+            {personalInfo.linkedin && (
+              <a
+                href={personalInfo.linkedin}
+                className="hero-social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View Manal Asghar's LinkedIn profile"
+              >
+                <LinkedInIcon /> LinkedIn
+              </a>
+            )}
+          </div>
+
+          <div className="hero-tech-strip" aria-label="Core technology stack">
+            <span className="hero-tech-label">Core stack</span>
+            <ul>
+              {heroTechStack.map((tech) => (
+                <li key={tech}>{tech}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="hero-visual" aria-hidden="true">
+          <div className="hero-terminal">
+            <div className="hero-terminal-header">
+              <span className="hero-terminal-controls">
+                <span />
+                <span />
+                <span />
+              </span>
+              <span className="hero-terminal-title">portfolio://workspace</span>
+              <span className="hero-terminal-badge">static preview</span>
+            </div>
+
+            <div className="hero-terminal-body">
+              <p className="hero-terminal-kicker">Project capability snapshot</p>
+              <div className="hero-terminal-command">
+                <span>$</span>
+                <code>portfolio --inspect capabilities</code>
+              </div>
+
+              <dl className="hero-terminal-data">
+                <div>
+                  <dt>model</dt>
+                  <dd>VisionGuard AI</dd>
+                </div>
+                <div>
+                  <dt>stack</dt>
+                  <dd>FastAPI + React</dd>
+                </div>
+                <div>
+                  <dt>detection</dt>
+                  <dd className="hero-terminal-ready">
+                    <span /> enabled
+                  </dd>
+                </div>
+                <div>
+                  <dt>RAG pipeline</dt>
+                  <dd className="hero-terminal-ready">
+                    <span /> ready
+                  </dd>
+                </div>
+              </dl>
+
+              <div className="hero-terminal-footer">
+                <span>Presentation snapshot</span>
+                <span>No live telemetry</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -7,7 +7,7 @@ export const personalInfo = {
   location: "Karachi, Pakistan",
   github: "https://github.com/Manal5664",
   linkedin: null,
-  resumeUrl: "#",
+  resumeUrl: "/Manal Asghar CV.pdf",
 };
 
 export const navLinks = [
@@ -190,7 +190,7 @@ export const experience = [
     company: "Aptech Learning",
     period: "Feb 2026 — Present",
     description:
-      "Teaching software development including HTML, CSS, JavaScript, jQuery, Bootstrap, PHP, Laravel, MySQL, and WordPress. Mentoring students through practical development projects.",
+      "Teaching software development and applied AI, including web development, Flask, Machine Learning, Deep Learning, and AI concepts. Mentoring students through practical software and AI-based projects.",
     technologies: [
       "HTML",
       "CSS",
@@ -198,7 +198,10 @@ export const experience = [
       "PHP",
       "Laravel",
       "MySQL",
-      "WordPress",
+      "Flask",
+      "Machine Learning",
+      "Deep Learning",
+      "AI",
     ],
   },
   {
@@ -220,7 +223,6 @@ export const experience = [
     technologies: [],
   },
 ];
-
 export const education = [
   {
     id: 1,
